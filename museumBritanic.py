@@ -35,17 +35,20 @@ def museo_britanico(red, inicio, fin):
 
 
 red = {
-  "A": ["B", "C"],
-  "B": ["A", "C", "D"],
-  "C": ["A", "B", "E"],
-  "D": ["B", "E"],
-  "E": ["C", "D"]
+    "A": ["B", "C", "D"],
+    "B": ["A", "C", "E", "F"],
+    "C": ["A", "B", "D", "E"],
+    "D": ["A", "C", "E", "G"],
+    "E": ["B", "C", "D", "F", "G"],
+    "F": ["B", "E", "H"],
+    "G": ["D", "E", "H"],
+    "H": ["F", "G"]
 }
 
 inicio = "A"
-fin = "E"
+fin = "H"
 
 mejor, trayectorias = museo_britanico(red, inicio, fin)
 
 print(f"La mejor trayectoria es: {mejor}")
-print(f"El número de trayectorias posibles es: {len(trayectorias)}")
+#print(f"El número de trayectorias posibles es: {len(trayectorias)}")

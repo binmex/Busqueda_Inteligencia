@@ -71,6 +71,23 @@ def min_max(es_max):
         return mejor_valor
 
 # Definir una función para encontrar el mejor movimiento para el jugador
+# Modificar la función evaluar para considerar cuadrados
+def evaluar():
+    ganador = hay_ganador()
+    if ganador == jugador:
+        return 10
+    elif ganador == oponente:
+        return -10
+    else:
+        valor = 0
+        for a, b, c in ganadoras:
+            if tablero[a] == tablero[b] == tablero[c] == jugador:
+                valor += 1
+            elif tablero[a] == tablero[b] == tablero[c] == oponente:
+                valor -= 1
+        return valor
+
+# Modificar la función mejor_movimiento para considerar cuadrados
 def mejor_movimiento():
     mejor_valor = -float("inf")
     mejor_posicion = -1
